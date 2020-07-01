@@ -19,6 +19,8 @@ Every different color takes 32 bits That means that the only space adding thing 
 
  The saved space is from 6112 bits(for single color) to 0 in increments of 32 bits until 192 colors.
  
+ ![](Git/calc.jpg) 
+ https://github.com/PPiirainen/Arduino_based_24-bit_16x16_pixel_compressor/blob/master/Git/calc.jpg
 
 The code haven't been tested on very large number of colors. So the speed with large number of images is unknown. 
 Tested on Atmega32U4. May work on other devices also. 
