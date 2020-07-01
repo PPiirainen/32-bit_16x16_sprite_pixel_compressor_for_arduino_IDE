@@ -27,3 +27,7 @@ The code haven't been tested on very large number of colors. So the speed with l
 Tested on Atmega32U4. May work on other devices also. 
 
 Disclaimer: This is my "Human malvare" coding learning experiense. 
+
+# To-Do
+Examples more clear.
+Mabye make the colors 32-bit hex file into two dimenensional array. where the color information is stored in 3x8 bit values. This could save one byte per color. 24bits vs 32 bits. Then parse the needed hex format in runtime for the FastLed.
