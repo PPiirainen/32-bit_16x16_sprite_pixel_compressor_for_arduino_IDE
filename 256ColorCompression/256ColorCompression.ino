@@ -10,7 +10,7 @@ char ImageName[] = "Name"; // Put your frame name here.
 
 
 
-const uint32_t Image[256] PROGMEM  = { // This array is for the image in 24-bit HEX format
+const uint32_t Image[256] PROGMEM  = { // This array is for the image in 24-bit HEX format.Replace these with your own image. 
 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 
 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 
 0x000000, 0x000000, 0x000000, 0x000000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0xff0000, 0x000000, 0x000000, 0x000000, 0x000000, 
@@ -32,7 +32,7 @@ const uint32_t Image[256] PROGMEM  = { // This array is for the image in 24-bit 
 uint8_t color0[256] = {0}; // This holds the found color places. only 8 bit. smaller than 24 bit for the color information.
 
 
-uint16_t ImPix = (sizeof(Image) / sizeof(Image[0])); // How many pixels.
+uint16_t ImPix = (sizeof(Image) / sizeof(Image[0])); // How many pixels in image.
 
 void setup() {
   
@@ -54,12 +54,13 @@ void setup() {
         break;
       }
     }
-    // If not printed earlier,then print it
+    // If not seen earlier,then calcultate it
     if (i == j) {
       res++;
     }
   }
- //  
+ 
+  // Calculate  and print different colors.   
 
   uint64_t Colors[res] = {0};//Array size of found number of colors.
 
@@ -72,8 +73,7 @@ void setup() {
       if (pgm_read_dword_far(&Image[i]) == pgm_read_dword_far(&Image[j])) {
         break;
       }
-    // If not printed earlier,
-    // then print it
+    // If not seen earlier,then calcultate it
     if (i == j) {
       Colors[index] = pgm_read_dword_far(&Image[i]);
       index++;
@@ -176,7 +176,7 @@ Serial.print(ImageName); Serial.print(F("col"));Serial.print(i);
     } 
 }
  Serial.println(F("};"));
-//This prints the funktion to use in the code.  
+//This prints the function to use in the code.  
 Serial.print(F("LedON(")); Serial.print(ImageName); Serial.print(F("ColrsNum, ")); Serial.print(ImageName); Serial.print(F("NumOfDiffCol, ")); Serial.print(ImageName); Serial.print(F("Colrs, ")); Serial.print(ImageName); Serial.println(F("pointers);"));
 
 }
